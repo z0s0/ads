@@ -25,7 +25,4 @@ insert into clicks(user_id, ad_id, action_time)
 insert into impressions(user_id, ad_id, show_time)
   values (1, 1, current_timestamp ),
          (2, 2, current_timestamp),
-         (1, 2, current_timestamp),
-         (1, 3, current_timestamp),
-         (2, 3, current_timestamp),
-         (1, 3, current_timestamp);
+         (1, 2, current_timestamp);

@@ -2,8 +2,8 @@ package ads
 
 import ads.api.{Docs, Routes}
 import ads.config.AppConfig
-import ads.repo.{AdsRepo, ClicksRepo}
-import ads.service.{AdsService, GetAdService}
+import ads.repo.{AdsRepo, ClicksRepo, StatsRepo}
+import ads.service.{AdsService, GetAdService, ImpressionsService}
 import cats.effect._
 import cats.implicits._
 import org.http4s.HttpRoutes
@@ -27,8 +27,10 @@ object Main extends IOApp {
       transactor = DbConnection.of(config.db)
       adsRepo = AdsRepo.pg(transactor)
       clicksRepo = ClicksRepo.pg(transactor)
-      getAdAlgo = GetAdService.naive
-      adsService = AdsService.of(adsRepo, getAdAlgo)
+      statsRepo = StatsRepo.pg(transactor)
+      impressionsService = ImpressionsService.pg(transactor)
+      getAdAlgo = GetAdService.statsBased(statsRepo)
+      adsService = AdsService.of(adsRepo, getAdAlgo, impressionsService)
       routes = new Routes(adsService).list
       interpreter = Http4sServerInterpreter[IO]().toRoutes(routes ++ swaggerEndpoints)
       router = Router("/" -> interpreter).orNotFound
