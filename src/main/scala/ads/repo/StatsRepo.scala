@@ -13,6 +13,9 @@ object StatsRepo {
 
   def pg(tr: Transactor[IO]) = new StatsRepo {
     def getStats(): IO[List[Stat]] = {
+      /*
+
+       */
       ???
     }
   }
