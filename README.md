@@ -10,7 +10,7 @@ Stack chosen:
 swagger docs: http://localhost:8080/docs/
 
 DB Schema 
-  
+```  
   users
     id 
     username
@@ -30,4 +30,4 @@ DB Schema
     user_id 
     ad_id 
     action_time  
-    
+   
