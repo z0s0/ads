@@ -1,6 +1,7 @@
 package ads.service
 
 import ads.core.Ad
+import ads.repo.AdsRepo
 import ads.service.Ads.Params.{AdParams, GetAdParams}
 import cats.effect.IO
 
@@ -11,7 +12,7 @@ trait Ads {
 }
 
 object Ads {
-  def of(adsRepo: AdsRepo, algo: GetAdAlgo): Ads = new Ads {
+  def of(adsRepo: AdsRepo, algo: GetAdService): Ads = new Ads {
     def create(params: AdParams): IO[Either[MutationError, Ad]] = ???
 
     def delete(id: Int): IO[Either[Error, Ad]] = ???
