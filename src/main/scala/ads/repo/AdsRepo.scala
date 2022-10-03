@@ -1,6 +1,6 @@
 package ads.repo
 
-import ads.service.Ads.Params.AdParams
+import ads.service.AdsService.Params.AdParams
 import cats.effect.IO
 import doobie.util.transactor.Transactor
 

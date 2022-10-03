@@ -1,7 +1,7 @@
 package ads.service
 
 import ads.core.Ad
-import ads.service.Ads.Params.GetAdParams
+import ads.service.AdsService.Params.GetAdParams
 import cats.effect.IO
 
 trait GetAdService {
