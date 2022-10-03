@@ -7,6 +7,8 @@ Stack chosen:
   - Db migrations: flyway
   - Docs generation: Tapir 
 
+swagger docs: http://localhost:8080/docs/
+
 DB Schema 
   
   users
